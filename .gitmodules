@@ -1,0 +1,3 @@
+[submodule "Carthage/Checkouts/UIKitClosures"]
+	path = Carthage/Checkouts/UIKitClosures
+	url = https://github.com/Infinity-James/UIKitClosures.git
