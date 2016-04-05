@@ -23,14 +23,25 @@ class ExerciseCounterViewController: UIViewController {
         }
     }
     /// The label that defines how many reps were performed in the set.
-    @IBOutlet var repsLabel: UILabel!
+    @IBOutlet private var repsLabel: UILabel!
+    /// The counter used to increment or decrement the reps for a set.
+    @IBOutlet private var repsCounter: UIStepper!
+    
+    //	MARK: Actions
+    
+    @IBAction private func counterValueChanged(counter: UIStepper) {
+        repsLabel.text = "\(Int(counter.value))"
+    }
     
     //	MARK: UI Functions
     
     private func configureUIWithExercise(exercise: Exercise) {
         if let targetReps = exercise.repTarget {
             repsLabel.text = "\(targetReps)"
+            repsCounter.value = Double(targetReps)
         }
+        
+        title = exercise.name
     }
     
     //	MARK: View Lifecycle

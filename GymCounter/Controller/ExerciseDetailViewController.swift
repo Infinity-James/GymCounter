@@ -20,13 +20,40 @@ class ExerciseDetailViewController: UIViewController {
     //	MARK: Properties
     
     /// Field for user to enter name of exercise.
-    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet private var nameTextField: UITextField!
     /// Field for user to enter target number of sets.
-    @IBOutlet var setsTextField: UITextField!
+    @IBOutlet private var setsTextField: UITextField!
     /// Field for user to enter target number of reps for each set.
-    @IBOutlet var targetRepsTextField: UITextField!
+    @IBOutlet private var targetRepsTextField: UITextField!
+    /// Field for user to enter weight for the sets.
+    @IBOutlet private var weightTextField: UITextField!
+    
+    /// A button which when tapped allows the user to select the measurement unit for the weight.
+    @IBOutlet private var measurementUnitButton: UIButton!
+    
+    /// The stack view that holds the elements necessary to describe an exercise.
+    @IBOutlet private var exerciseFormStackView: UIStackView!
+    
+    /// The measurement units available to the user.
+    private let measurementUnits: [Set.MeasurementUnit] = [.Metric, .Imperial]
     
     //	MARK: Actions
+    
+    @IBAction private func measurementUnitButtonTapped(unitButton: UIButton) {
+        
+        //  create a way for the user to select the measurement unit
+        let unitPicker = UIPickerView()
+        unitPicker.dataSource = self
+        unitPicker.delegate = self
+        
+        //  insert the picker into the stack view
+        guard let parentView = unitButton.superview,
+            parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {
+            fatalError("The button (\(unitButton)) should have a super view which is inside of the stack view: \(exerciseFormStackView).")
+        }
+        
+        exerciseFormStackView.insertArrangedSubview(unitPicker, atIndex: parentViewIndex + 1)
+    }
     
     @IBAction private func startExerciseTapped(startButton: UIButton) {
         
@@ -48,5 +75,33 @@ class ExerciseDetailViewController: UIViewController {
         
         exerciseCounterVC.exercise = exercise
         navigationController?.pushViewController(exerciseCounterVC, animated: true)
+    }
+}
+
+//	MARK: UIPickerViewDataSource
+
+extension ExerciseDetailViewController: UIPickerViewDataSource {
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return measurementUnits.count
+    }
+}
+
+//	MARK: UIPickerViewDelegate
+
+extension ExerciseDetailViewController: UIPickerViewDelegate {
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let measurementUnit = measurementUnits[row]
+        return measurementUnit.massUnitString
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let measurementUnit = measurementUnits[row]
+        measurementUnitButton.setTitle(measurementUnit.massUnitString, forState: .Normal)
     }
 }
