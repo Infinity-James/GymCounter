@@ -55,10 +55,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="99X-WP-PwL">
-                                <rect key="frame" x="20" y="84" width="560" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="99X-WP-PwL" userLabel="Exercise Form">
+                                <rect key="frame" x="20" y="84" width="560" height="120"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCo-hT-HsN">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCo-hT-HsN" userLabel="Exercise Name Field">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" horizontalCompressionResistancePriority="999" misplaced="YES" text="Exercise Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0I-be-t0h">
@@ -74,8 +74,34 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0G-Jd-Fxx">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt9-Lc-m08" userLabel="Weight Field">
                                         <rect key="frame" x="0.0" y="30" width="560" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sc-Sm-Kx8">
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sc7-au-hr2">
+                                                <rect key="frame" x="114" y="0.0" width="224" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tb-9B-FgK">
+                                                <rect key="frame" x="337" y="0.0" width="223" height="30"/>
+                                                <state key="normal" title="kg"/>
+                                                <connections>
+                                                    <action selector="measurementUnitButtonTapped:" destination="Y2a-0T-3ON" eventType="touchUpInside" id="pvw-pO-67L"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2Tb-9B-FgK" firstAttribute="width" secondItem="sc7-au-hr2" secondAttribute="width" id="Ka1-Nh-JRa"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0G-Jd-Fxx" userLabel="Sets Field">
+                                        <rect key="frame" x="0.0" y="60" width="560" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sets Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh5-dw-t6t">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
@@ -90,8 +116,8 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TI-ca-w6N">
-                                        <rect key="frame" x="0.0" y="60" width="560" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TI-ca-w6N" userLabel="Reps Field">
+                                        <rect key="frame" x="0.0" y="90" width="560" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="Reps Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvE-0I-SxI">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
@@ -109,17 +135,18 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="wh5-dw-t6t" firstAttribute="width" secondItem="L0I-be-t0h" secondAttribute="width" id="2pA-Tk-gBd"/>
+                                    <constraint firstItem="3sc-Sm-Kx8" firstAttribute="width" secondItem="L0I-be-t0h" secondAttribute="width" id="gIC-4Z-1f3"/>
                                     <constraint firstItem="BvE-0I-SxI" firstAttribute="width" secondItem="L0I-be-t0h" secondAttribute="width" id="u4J-rp-B26"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuY-ow-Slj">
-                                <rect key="frame" x="283" y="259" width="34" height="30"/>
+                                <rect key="frame" x="283" y="289" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.012525580804273906" green="0.60467701241554717" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxU-hS-uIi">
-                                <rect key="frame" x="272" y="206" width="56" height="45"/>
+                                <rect key="frame" x="272" y="236" width="56" height="45"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.01176470588" green="0.46666666670000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,9 +168,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="exerciseFormStackView" destination="99X-WP-PwL" id="6oE-S4-fFD"/>
+                        <outlet property="measurementUnitButton" destination="2Tb-9B-FgK" id="vsi-f7-xPP"/>
                         <outlet property="nameTextField" destination="M7D-yn-AZB" id="Asv-wV-IVq"/>
                         <outlet property="setsTextField" destination="ejJ-Ik-CFb" id="1uL-2c-D0C"/>
                         <outlet property="targetRepsTextField" destination="kfu-lY-fK8" id="cp8-9y-iGu"/>
+                        <outlet property="weightTextField" destination="sc7-au-hr2" id="7nZ-Pc-2xl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXk-dJ-tLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,8 +198,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="yDZ-io-nry">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minimumValue="1" maximumValue="999" translatesAutoresizingMaskIntoConstraints="NO" id="yDZ-io-nry">
                                 <rect key="frame" x="253" y="158" width="94" height="29"/>
+                                <connections>
+                                    <action selector="counterValueChanged:" destination="59N-qK-TnL" eventType="valueChanged" id="ukY-eS-CmV"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3do-6p-2FQ">
                                 <rect key="frame" x="295" y="128.5" width="11" height="21"/>
@@ -230,6 +263,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="repsCounter" destination="yDZ-io-nry" id="cBe-9h-Pv8"/>
                         <outlet property="repsLabel" destination="3do-6p-2FQ" id="hLh-h7-TS2"/>
                     </connections>
                 </viewController>
