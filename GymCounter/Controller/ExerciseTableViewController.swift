@@ -10,5 +10,5 @@ import UIKit
 
 //	MARK: Exercise Table View Controller Class
 
-class ExterciseTableViewController: UIViewController {
+class ExerciseTableViewController: UITableViewController {
 }

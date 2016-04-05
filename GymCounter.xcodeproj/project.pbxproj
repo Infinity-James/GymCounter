@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		1A77BEAB1CB3E06300E5654B /* GymCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEAA1CB3E06300E5654B /* GymCounterTests.swift */; };
 		1A77BEB61CB3E06300E5654B /* GymCounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEB51CB3E06300E5654B /* GymCounterUITests.swift */; };
-		1A77BED11CB3E15F00E5654B /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEC51CB3E15F00E5654B /* ExerciseViewController.swift */; };
+		1A77BED11CB3E15F00E5654B /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEC51CB3E15F00E5654B /* ExerciseTableViewController.swift */; };
 		1A77BED21CB3E15F00E5654B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A77BEC91CB3E15F00E5654B /* Assets.xcassets */; };
 		1A77BED31CB3E15F00E5654B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BECB1CB3E15F00E5654B /* AppDelegate.swift */; };
 		1A77BED51CB3E15F00E5654B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A77BECE1CB3E15F00E5654B /* Main.storyboard */; };
+		1A77BED71CB3E7C200E5654B /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BED61CB3E7C200E5654B /* ExerciseDetailViewController.swift */; };
+		1A77BED91CB3EBBB00E5654B /* ExerciseCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */; };
+		1A77BEDB1CB3F29B00E5654B /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEDA1CB3F29B00E5654B /* Exercise.swift */; };
+		1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +44,15 @@
 		1A77BEB11CB3E06300E5654B /* GymCounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymCounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A77BEB51CB3E06300E5654B /* GymCounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymCounterUITests.swift; sourceTree = "<group>"; };
 		1A77BEB71CB3E06300E5654B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A77BEC51CB3E15F00E5654B /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		1A77BEC51CB3E15F00E5654B /* ExerciseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewController.swift; sourceTree = "<group>"; };
 		1A77BEC91CB3E15F00E5654B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A77BECB1CB3E15F00E5654B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A77BECC1CB3E15F00E5654B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A77BECF1CB3E15F00E5654B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A77BED61CB3E7C200E5654B /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
+		1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCounterViewController.swift; sourceTree = "<group>"; };
+		1A77BEDA1CB3F29B00E5654B /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKitClosures.framework; path = Carthage/Build/iOS/UIKitClosures.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +84,7 @@
 		1A77BE891CB3E06300E5654B = {
 			isa = PBXGroup;
 			children = (
+				1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */,
 				1A77BEC31CB3E15F00E5654B /* GymCounter */,
 				1A77BEA91CB3E06300E5654B /* GymCounterTests */,
 				1A77BEB41CB3E06300E5654B /* GymCounterUITests */,
@@ -127,7 +137,9 @@
 		1A77BEC41CB3E15F00E5654B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1A77BEC51CB3E15F00E5654B /* ExerciseViewController.swift */,
+				1A77BEC51CB3E15F00E5654B /* ExerciseTableViewController.swift */,
+				1A77BED61CB3E7C200E5654B /* ExerciseDetailViewController.swift */,
+				1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,6 +154,7 @@
 		1A77BEC71CB3E15F00E5654B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A77BEDA1CB3F29B00E5654B /* Exercise.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,8 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A77BEDB1CB3F29B00E5654B /* Exercise.swift in Sources */,
 				1A77BED31CB3E15F00E5654B /* AppDelegate.swift in Sources */,
-				1A77BED11CB3E15F00E5654B /* ExerciseViewController.swift in Sources */,
+				1A77BED91CB3EBBB00E5654B /* ExerciseCounterViewController.swift in Sources */,
+				1A77BED11CB3E15F00E5654B /* ExerciseTableViewController.swift in Sources */,
+				1A77BED71CB3E7C200E5654B /* ExerciseDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +396,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -395,6 +412,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -426,6 +444,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -435,6 +454,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -448,6 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/GymCounter/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounter;
@@ -462,6 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/GymCounter/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounter;

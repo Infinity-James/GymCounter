@@ -8,28 +8,38 @@
 
 import UIKit
 
+//	MARK: Exercise Counter View Controller Class
+
 class ExerciseCounterViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    //	MARK: Properties
+    
+    /// The exercise that htis view controller is counting sets and reps for.
+    var exercise: Exercise? {
+        didSet {
+            if let exercise = exercise where isViewLoaded() {
+                configureUIWithExercise(exercise)
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /// The label that defines how many reps were performed in the set.
+    @IBOutlet var repsLabel: UILabel!
+    
+    //	MARK: UI Functions
+    
+    private func configureUIWithExercise(exercise: Exercise) {
+        if let targetReps = exercise.repTarget {
+            repsLabel.text = "\(targetReps)"
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //	MARK: View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let exercise = exercise {
+            configureUIWithExercise(exercise)
+        }
     }
-    */
-
 }
