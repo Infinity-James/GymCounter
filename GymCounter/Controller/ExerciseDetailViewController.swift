@@ -37,9 +37,16 @@ class ExerciseDetailViewController: UIViewController {
     /// The measurement units available to the user.
     private let measurementUnits: [Set.MeasurementUnit] = [.Metric, .Imperial]
     
+    /// Whether or not the picker is being shown.
+    private var isUnitPickerShown = false
+    
     //	MARK: Actions
     
     @IBAction private func measurementUnitButtonTapped(unitButton: UIButton) {
+        
+        guard !isUnitPickerShown else {
+            return
+        }
         
         //  create a way for the user to select the measurement unit
         let unitPicker = UIPickerView()
@@ -53,6 +60,8 @@ class ExerciseDetailViewController: UIViewController {
         }
         
         exerciseFormStackView.insertArrangedSubview(unitPicker, atIndex: parentViewIndex + 1)
+        
+        isUnitPickerShown = true
     }
     
     @IBAction private func startExerciseTapped(startButton: UIButton) {
