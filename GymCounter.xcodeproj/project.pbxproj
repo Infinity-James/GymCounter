@@ -259,7 +259,7 @@
 				TargetAttributes = {
 					1A77BE911CB3E06300E5654B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 967823F5Q8;
+						DevelopmentTeam = ZFDEX86BMA;
 					};
 					1A77BEA51CB3E06300E5654B = {
 						CreatedOnToolsVersion = 7.3;
@@ -411,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -453,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -557,6 +557,7 @@
 				1A77BEBC1CB3E06300E5654B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A77BEBD1CB3E06300E5654B /* Build configuration list for PBXNativeTarget "GymCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +566,7 @@
 				1A77BEBF1CB3E06300E5654B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A77BEC01CB3E06300E5654B /* Build configuration list for PBXNativeTarget "GymCounterUITests" */ = {
 			isa = XCConfigurationList;
@@ -573,6 +575,7 @@
 				1A77BEC21CB3E06300E5654B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
