@@ -17,6 +17,8 @@
 		1A77BED91CB3EBBB00E5654B /* ExerciseCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */; };
 		1A77BEDB1CB3F29B00E5654B /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEDA1CB3F29B00E5654B /* Exercise.swift */; };
 		1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; };
+		1AE1013E1CB6A81700084897 /* UIKitClosures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1AE101401CB6ADC700084897 /* MassUnitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1AE1013D1CB6A80300084897 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1AE1013E1CB6A81700084897 /* UIKitClosures.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1A77BE921CB3E06300E5654B /* GymCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A77BEA61CB3E06300E5654B /* GymCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +69,7 @@
 		1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCounterViewController.swift; sourceTree = "<group>"; };
 		1A77BEDA1CB3F29B00E5654B /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKitClosures.framework; path = Carthage/Build/iOS/UIKitClosures.framework; sourceTree = "<group>"; };
+		1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassUnitButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +204,7 @@
 		1A77BED01CB3E15F00E5654B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +218,7 @@
 			buildPhases = (
 				1A77BE8E1CB3E06300E5654B /* Sources */,
 				1A77BE8F1CB3E06300E5654B /* Frameworks */,
+				1AE1013D1CB6A80300084897 /* Embed Frameworks */,
 				1A77BE901CB3E06300E5654B /* Resources */,
 			);
 			buildRules = (
@@ -327,6 +346,7 @@
 				1A77BED91CB3EBBB00E5654B /* ExerciseCounterViewController.swift in Sources */,
 				1A77BED11CB3E15F00E5654B /* ExerciseTableViewController.swift in Sources */,
 				1A77BED71CB3E7C200E5654B /* ExerciseDetailViewController.swift in Sources */,
+				1AE101401CB6ADC700084897 /* MassUnitButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +432,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -454,7 +475,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				LD_RUNPATH_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -497,7 +519,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GymCounterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GymCounter.app/GymCounter";
@@ -509,7 +531,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = GymCounterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GymCounter.app/GymCounter";
@@ -520,7 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = GymCounterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = GymCounter;
@@ -531,7 +553,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = GymCounterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = GymCounter;
