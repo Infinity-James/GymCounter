@@ -29,40 +29,13 @@ class ExerciseDetailViewController: UIViewController {
     @IBOutlet private var weightTextField: UITextField!
     
     /// A button which when tapped allows the user to select the measurement unit for the weight.
-    @IBOutlet private var measurementUnitButton: UIButton!
+    @IBOutlet private var massUnitButton: MassUnitButton!
     
     /// The stack view that holds the elements necessary to describe an exercise.
     @IBOutlet private var exerciseFormStackView: UIStackView!
-    
-    /// The measurement units available to the user.
-    private let measurementUnits: [Set.MeasurementUnit] = [.Metric, .Imperial]
-    
-    /// The picker view that allows the user to choose the measurement unit for the weight.
-    private var unitPickerView: UIPickerView?
+
     
     //	MARK: Actions
-    
-    @IBAction private func measurementUnitButtonTapped(unitButton: UIButton) {
-        
-        if let unitPickerView = unitPickerView {
-            exerciseFormStackView.removeArrangedSubview(unitPickerView)
-            self.unitPickerView = nil
-            return
-        }
-        
-        //  create a way for the user to select the measurement unit
-        unitPickerView = UIPickerView()
-        unitPickerView!.dataSource = self
-        unitPickerView!.delegate = self
-        
-        //  insert the picker into the stack view
-        guard let parentView = unitButton.superview,
-            parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {
-            fatalError("The button (\(unitButton)) should have a super view which is inside of the stack view: \(exerciseFormStackView).")
-        }
-        
-        exerciseFormStackView.insertArrangedSubview(unitPickerView!, atIndex: parentViewIndex + 1)
-    }
     
     @IBAction private func startExerciseTapped(startButton: UIButton) {
         
@@ -85,32 +58,34 @@ class ExerciseDetailViewController: UIViewController {
         exerciseCounterVC.exercise = exercise
         navigationController?.pushViewController(exerciseCounterVC, animated: true)
     }
-}
-
-//	MARK: UIPickerViewDataSource
-
-extension ExerciseDetailViewController: UIPickerViewDataSource {
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
+    //	MARK: View Lifecycle
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return measurementUnits.count
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        massUnitButton.unitButtonDelegate = self
     }
 }
 
-//	MARK: UIPickerViewDelegate
+//	MARK: MassUnitButtonDelegate
 
-extension ExerciseDetailViewController: UIPickerViewDelegate {
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let measurementUnit = measurementUnits[row]
-        return measurementUnit.massUnitString
+extension ExerciseDetailViewController: MassUnitButtonDelegate {
+
+    func massUnitButton(unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView) {
+        exerciseFormStackView.removeArrangedSubview(pickerView)
+        pickerView.removeFromSuperview()
     }
+
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let measurementUnit = measurementUnits[row]
-        measurementUnitButton.setTitle(measurementUnit.massUnitString, forState: .Normal)
+    func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
+        
+        //  insert the picker into the stack view
+        guard let parentView = unitButton.superview,
+            parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {
+                fatalError("The button (\(unitButton)) should have a super view which is inside of the stack view: \(exerciseFormStackView).")
+        }
+        
+        exerciseFormStackView.insertArrangedSubview(pickerView, atIndex: parentViewIndex + 1)
     }
 }
