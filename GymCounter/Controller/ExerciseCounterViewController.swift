@@ -10,11 +10,16 @@ import UIKit
 
 //	MARK: Exercise Counter View Controller Class
 
+/**
+    `ExerciseCounterViewController`
+ 
+    This is where the user will count their sets and reps for an exercise.
+ */
 class ExerciseCounterViewController: UIViewController {
     
     //	MARK: Properties
     
-    /// The exercise that htis view controller is counting sets and reps for.
+    /// The exercise that this view controller is counting sets and reps for.
     var exercise: Exercise? {
         didSet {
             if let exercise = exercise where isViewLoaded() {

@@ -10,5 +10,10 @@ import UIKit
 
 //	MARK: Exercise Table View Controller Class
 
+/**
+    `ExerciseTableViewController`
+ 
+    The table view controller responsible for displaying the exercises in a workout.
+ */
 class ExerciseTableViewController: UITableViewController {
 }

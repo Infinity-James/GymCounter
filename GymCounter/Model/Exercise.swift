@@ -10,6 +10,11 @@ import Foundation
 
 //	MARK: Exercise Struct
 
+/**
+    `Exercise`
+ 
+    Represents an exercise performed by the user.
+ */
 struct Exercise {
     
     //	MARK: Properties
@@ -24,26 +29,12 @@ struct Exercise {
 
 //	MARK: Set Struct
 
+/**
+    `Set`
+ 
+    Represents a set of an exercise.
+ */
 struct Set {
-    
-    //	MARK: Measurement Unit Enum
-    
-    enum MeasurementUnit {
-        /// An imperial measurement unit (lbs).
-        case Imperial
-        /// A metric measurement unit (kg).
-        case Metric
-        
-        /// This measurement unit as a unit to meaure mass (as a String).
-        var massUnitString: String {
-            switch self {
-            case .Imperial:
-                return "lbs"
-            case .Metric:
-                return "kg"
-            }
-        }
-    }
     
     //	MARK: Properties
     
@@ -53,4 +44,28 @@ struct Set {
     let weight: Double
     /// The measurement unit used for the weight lifted.
     let weightMeasurementUnit: MeasurementUnit
+}
+
+//	MARK: Measurement Unit Enum
+
+/**
+    `MeasurementUnit`
+ 
+    The unit of measurement.
+ */
+enum MeasurementUnit {
+    /// An imperial measurement unit (lbs).
+    case Imperial
+    /// A metric measurement unit (kg).
+    case Metric
+    
+    /// This measurement unit as a unit to meaure mass (as a String).
+    var massUnitString: String {
+        switch self {
+        case .Imperial:
+            return "lbs"
+        case .Metric:
+            return "kg"
+        }
+    }
 }

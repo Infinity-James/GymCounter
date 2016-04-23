@@ -11,10 +11,23 @@ import UIKitClosures
 
 //	MARK: Exercise Detail View Controller Class
 
+/**
+    `ExerciseDetailViewController`
+ 
+    Displays a detail view for an exercise.
+    
+    The user can edit the details of an exercise:
+    - Exercise name.
+    - Target number of sets.
+    - Target number of reps for each set.
+    - The weight that the exercise will start with.
+    - The mass unit measurement for the weight.
+ */
 class ExerciseDetailViewController: UIViewController {
     
     //	MARK: Constants
     
+    /// Identifies a segue that is triggered when the user wants to start counting the exercise.
     private let startExerciseSegueIdentifier = "StartExerciseSegue"
     
     //	MARK: Properties
@@ -80,7 +93,7 @@ extension ExerciseDetailViewController: MassUnitButtonDelegate {
     
     func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
         
-        //  insert the picker into the stack view
+        //  insert the picker into the stack view below the button
         guard let parentView = unitButton.superview,
             parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {
                 fatalError("The button (\(unitButton)) should have a super view which is inside of the stack view: \(exerciseFormStackView).")

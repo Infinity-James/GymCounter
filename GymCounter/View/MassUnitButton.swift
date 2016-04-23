@@ -22,9 +22,9 @@ class MassUnitButton: UIButton {
     private var unitPickerView: UIPickerView?
     
     /// The measurement units available to the user.
-    private let measurementUnits: [Set.MeasurementUnit] = [.Metric, .Imperial]
+    private let measurementUnits: [MeasurementUnit] = [.Metric, .Imperial]
     /// The selected measurement unit.
-    var selectedMeasurementUnit = Set.MeasurementUnit.Metric {
+    var selectedMeasurementUnit = MeasurementUnit.Metric {
         didSet {
             setTitle(selectedMeasurementUnit.massUnitString, forState: .Normal)
         }
