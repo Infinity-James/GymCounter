@@ -52,9 +52,11 @@ class ExerciseDetailViewController: UIViewController {
     
     @IBAction private func startExerciseTapped(startButton: UIButton) {
         
-        guard let exerciseName = nameTextField.text else {
-            let alert = UIAlertController(title: "Missing Information", message: "You have not entered a name for the exercise", preferredStyle: .Alert)
-            let okayAction = UIAlertAction(title: "Okay", style: .Cancel, handler: nil)
+        guard let exerciseName = nameTextField.text,
+        weightText = weightTextField.text,
+        weight = Double(weightText) where exerciseName != "" else {
+            let alert = UIAlertController(title: "Missing Information", message: "Make sure there is a valid exercise name and weight entered before tyring to continue.", preferredStyle: .Alert)
+            let okayAction = UIAlertAction(title: "Got It", style: .Cancel, handler: nil)
             alert.addAction(okayAction)
             presentViewController(alert, animated: true, completion: nil)
             return
@@ -69,6 +71,8 @@ class ExerciseDetailViewController: UIViewController {
         }
         
         exerciseCounterVC.exercise = exercise
+        exerciseCounterVC.weight = weight
+        exerciseCounterVC.measurementUnit = massUnitButton.selectedMeasurementUnit
         navigationController?.pushViewController(exerciseCounterVC, animated: true)
     }
     

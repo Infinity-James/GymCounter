@@ -19,6 +19,9 @@ class ExerciseCounterViewController: UIViewController {
     
     //	MARK: Properties
     
+    /// The data source for the sets collection view.
+    private let setsDataSource = SetsCollectionViewDataSource()
+    
     /// The exercise that this view controller is counting sets and reps for.
     var exercise: Exercise? {
         didSet {
@@ -27,14 +30,45 @@ class ExerciseCounterViewController: UIViewController {
             }
         }
     }
+    /// The weight for the next set.
+    var weight: Double = 0.0 {
+        didSet {
+            if let weightTextField = weightTextField {
+                weightTextField.text = String(weight)
+            }
+        }
+    }
+    /// The unit of measurement for the weight
+    var measurementUnit: MeasurementUnit = .Metric {
+        didSet {
+            if let unitButton = unitButton {
+                unitButton.selectedMeasurementUnit = measurementUnit
+            }
+        }
+    }
     /// The label that defines how many reps were performed in the set.
     @IBOutlet private var repsLabel: UILabel!
     /// The counter used to increment or decrement the reps for a set.
     @IBOutlet private var repsCounter: UIStepper!
     /// Button to set the unit of measurement for the mass lifted.
-    @IBOutlet private var unitButton: MassUnitButton!
+    @IBOutlet private var unitButton: MassUnitButton! {
+        didSet {
+            unitButton.selectedMeasurementUnit = measurementUnit
+        }
+    }
     /// The text field which provides the user with a way to enter the mass lifted.
-    @IBOutlet private var weightTextField: UITextField!
+    @IBOutlet private var weightTextField: UITextField! {
+        didSet {
+            weightTextField.text = String(weight)
+        }
+    }
+    /// The collection view which will display the sets of this exercise.
+    @IBOutlet private var setsCollectionView: UICollectionView! {
+        didSet {
+            setsDataSource.collectionView = setsCollectionView
+            setsCollectionView.dataSource = setsDataSource
+        }
+    }
     
     //	MARK: Actions
     
@@ -53,7 +87,7 @@ class ExerciseCounterViewController: UIViewController {
         
         let set = Set(reps: reps, weight: weight, weightMeasurementUnit: unitButton.selectedMeasurementUnit)
         exercise?.sets.append(set)
-        
+        setsDataSource.exercise = exercise!
     }
     
     //	MARK: UI Functions
@@ -75,5 +109,12 @@ class ExerciseCounterViewController: UIViewController {
         if let exercise = exercise {
             configureUIWithExercise(exercise)
         }
+        
+        weightTextField.textChangedClosure = { [unowned self] text in
+            if let weight = Double(text) {
+                self.weight = weight
+            }
+        }
+        
     }
 }
