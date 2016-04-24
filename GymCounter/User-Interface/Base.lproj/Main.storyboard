@@ -205,11 +205,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-Pc-X37">
-                                <rect key="frame" x="262" y="286" width="77" height="159"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="128"/>
-                                <state key="normal" title="+"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Set:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvK-zS-pDi">
                                 <rect key="frame" x="271" y="308" width="59" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -235,28 +230,61 @@
                                 <state key="normal" title="kg"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IYK-e1-LQe">
-                                <rect key="frame" x="0.0" y="536" width="600" height="64"/>
+                                <rect key="frame" x="0.0" y="504" width="600" height="96"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="nNQ-Td-e6g"/>
+                                    <constraint firstAttribute="height" constant="96" id="nNQ-Td-e6g"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ben-yG-WEo">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ben-yG-WEo">
+                                    <size key="itemSize" width="72" height="72"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SetCollectionCell" id="9ob-JN-s0R">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SetCollectionViewCell" id="9ob-JN-s0R" customClass="SetCollectionViewCell" customModule="GymCounter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12" width="72" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-w6-Tqp">
+                                                    <rect key="frame" x="12" y="37" width="47.5" height="25.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNd-Mx-nBl">
+                                                    <rect key="frame" x="13" y="8" width="46" height="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="4Ea-w6-Tqp" firstAttribute="top" secondItem="JNd-Mx-nBl" secondAttribute="bottom" constant="12" id="LX5-Fp-bad"/>
+                                            <constraint firstAttribute="topMargin" secondItem="JNd-Mx-nBl" secondAttribute="top" id="UeW-Se-Dfy"/>
+                                            <constraint firstItem="4Ea-w6-Tqp" firstAttribute="centerX" secondItem="JNd-Mx-nBl" secondAttribute="centerX" id="kvL-ov-rsN"/>
+                                            <constraint firstItem="JNd-Mx-nBl" firstAttribute="centerX" secondItem="9ob-JN-s0R" secondAttribute="centerX" id="nUw-j2-9eB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="repsLabel" destination="4Ea-w6-Tqp" id="PeL-hN-PFz"/>
+                                            <outlet property="weightLabel" destination="JNd-Mx-nBl" id="k52-gF-yIn"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-Pc-X37">
+                                <rect key="frame" x="262" y="286" width="77" height="159"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="128"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="addSetTapped:" destination="59N-qK-TnL" eventType="touchUpInside" id="qZg-XV-nmZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -284,6 +312,7 @@
                     <connections>
                         <outlet property="repsCounter" destination="yDZ-io-nry" id="cBe-9h-Pv8"/>
                         <outlet property="repsLabel" destination="3do-6p-2FQ" id="hLh-h7-TS2"/>
+                        <outlet property="setsCollectionView" destination="IYK-e1-LQe" id="CCK-BJ-g0D"/>
                         <outlet property="unitButton" destination="F8H-FN-kfo" id="Ogp-0z-4cD"/>
                         <outlet property="weightTextField" destination="DdD-Mj-plX" id="Fic-Cd-oGG"/>
                     </connections>
