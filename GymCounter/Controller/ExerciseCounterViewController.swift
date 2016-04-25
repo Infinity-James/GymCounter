@@ -87,18 +87,19 @@ class ExerciseCounterViewController: UIViewController {
         
         let set = Set(reps: reps, weight: weight, weightMeasurementUnit: unitButton.selectedMeasurementUnit)
         exercise?.sets.append(set)
-        setsDataSource.exercise = exercise!
     }
     
     //	MARK: UI Functions
     
     private func configureUIWithExercise(exercise: Exercise) {
-        if let targetReps = exercise.repTarget {
+        if let targetReps = exercise.repTarget where exercise.sets.count == 0 {
             repsLabel.text = "\(targetReps)"
             repsCounter.value = Double(targetReps)
         }
         
         title = exercise.name
+        
+        setsDataSource.exercise = exercise
     }
     
     //	MARK: View Lifecycle
