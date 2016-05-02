@@ -19,7 +19,7 @@ class SetCollectionViewCell: UICollectionViewCell {
     
     //	MARK: Properties
     
-    //  The set to be displayed in this cell.
+    /// The set to be displayed in this cell.
     var set: Set? {
         didSet {
             guard let set = set else { return }
@@ -28,8 +28,22 @@ class SetCollectionViewCell: UICollectionViewCell {
             repsLabel.text = String(set.reps)
         }
     }
-    //  The label that displays the weight performed in the set.
+    /// The index of this set.
+    var setNumber: Int? {
+        get {
+            return Int(setNumberLabel.text ?? "")
+        }
+        set {
+            if let setNumberLabel = setNumberLabel,
+                setNumber = newValue {
+                setNumberLabel.text = String(setNumber)
+            }
+        }
+    }
+    /// The label that displays the weight performed in the set.
     @IBOutlet private var weightLabel: UILabel!
-    //  The label that displays the reps performed in the set.
+    /// The label that displays the reps performed in the set.
     @IBOutlet private var repsLabel: UILabel!
+    /// Displays the the index of this set relative to the other sets in the exercise.
+    @IBOutlet private var setNumberLabel: UILabel!
 }
