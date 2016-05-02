@@ -54,6 +54,7 @@ extension SetsCollectionViewDataSource: UICollectionViewDataSource {
         
         let set = exercise.sets[indexPath.item]
         cell.set = set
+        cell.setNumber = indexPath.item + 1
         
         return cell
     }
