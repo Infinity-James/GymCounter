@@ -27,6 +27,12 @@ class SetsCollectionViewDataSource: NSObject {
     var exercise: Exercise {
         didSet {
             collectionView?.reloadData()
+            
+            if exercise.sets.count > 0 {
+                let lastIndexPath = NSIndexPath(forItem: exercise.sets.count - 1, inSection: 0)
+                
+                collectionView?.scrollToItemAtIndexPath(lastIndexPath, atScrollPosition: .Right, animated: true)
+            }
         }
     }
     
