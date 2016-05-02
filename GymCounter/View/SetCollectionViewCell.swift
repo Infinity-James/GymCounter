@@ -24,7 +24,7 @@ class SetCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let set = set else { return }
             
-            weightLabel.text = String(set.weight)
+            weightLabel.text = String(set.weight) + set.weightMeasurementUnit.massUnitString
             repsLabel.text = String(set.reps)
         }
     }
