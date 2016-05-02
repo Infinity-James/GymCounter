@@ -61,6 +61,7 @@ class ExerciseCounterViewController: UIViewController {
     @IBOutlet private var unitButton: MassUnitButton! {
         didSet {
             unitButton.selectedMeasurementUnit = measurementUnit
+            unitButton.unitButtonDelegate = self
         }
     }
     /// The text field which provides the user with a way to enter the mass lifted.
@@ -76,6 +77,9 @@ class ExerciseCounterViewController: UIViewController {
             setsCollectionView.dataSource = setsDataSource
         }
     }
+    
+    /// The constraint between the weight text field and the add set label.
+    @IBOutlet private var weightSetConstraint: NSLayoutConstraint!
     
     //	MARK: Actions
     
@@ -94,6 +98,10 @@ class ExerciseCounterViewController: UIViewController {
         
         let set = Set(reps: reps, weight: weight, weightMeasurementUnit: unitButton.selectedMeasurementUnit)
         exercise?.sets.append(set)
+    }
+    
+    @objc @IBAction private func saveExercise(saveButtonItem: UIBarButtonItem) {
+        
     }
     
     //	MARK: UI Functions
@@ -117,5 +125,37 @@ class ExerciseCounterViewController: UIViewController {
         if let exercise = exercise {
             configureUIWithExercise(exercise)
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: #selector(ExerciseCounterViewController.saveExercise(_:)))
     }
+}
+
+//	MARK: MassUnitButtonDelegate
+
+/**
+    Fucntions pertaining to the display and dismissal of the picker created by the mass unit button.
+ */
+extension ExerciseCounterViewController: MassUnitButtonDelegate {
+    
+    func massUnitButton(unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView) {
+        
+    }
+    
+    func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
+        guard let addSetLabel = weightSetConstraint?.firstItem as? UILabel,
+            weightTextField = weightSetConstraint?.secondItem as? UITextField else {
+                return
+        }
+        
+        weightSetConstraint.active = false
+        
+        view.addSubview(pickerView)
+        
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+    
+        pickerView.topAnchor.constraintEqualToAnchor(weightTextField.bottomAnchor).active = true
+        pickerView.bottomAnchor.constraintEqualToAnchor(addSetLabel.topAnchor).active = true
+        pickerView.centerXAnchor.constraintEqualToAnchor(weightTextField.centerXAnchor).active = true
+    }
+    
 }
