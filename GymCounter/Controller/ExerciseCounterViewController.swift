@@ -30,11 +30,18 @@ class ExerciseCounterViewController: UIViewController {
             }
         }
     }
+    /// The internal storage for the weight if text field isn't displayed yet.
+    private var _weight: Double = 0.0
     /// The weight for the next set.
-    var weight: Double = 0.0 {
-        didSet {
+    var weight: Double? {
+        get {
+            return Double(weightTextField.text ?? "")
+        }
+        set {
             if let weightTextField = weightTextField {
-                weightTextField.text = String(weight)
+                weightTextField.text = String(newValue ?? 0.0)
+            } else if let weight = newValue {
+                _weight = weight
             }
         }
     }
@@ -59,7 +66,7 @@ class ExerciseCounterViewController: UIViewController {
     /// The text field which provides the user with a way to enter the mass lifted.
     @IBOutlet private var weightTextField: UITextField! {
         didSet {
-            weightTextField.text = String(weight)
+            weightTextField.text = String(_weight)
         }
     }
     /// The collection view which will display the sets of this exercise.
@@ -110,12 +117,5 @@ class ExerciseCounterViewController: UIViewController {
         if let exercise = exercise {
             configureUIWithExercise(exercise)
         }
-        
-        weightTextField.textChangedClosure = { [unowned self] text in
-            if let weight = Double(text) {
-                self.weight = weight
-            }
-        }
-        
     }
 }
