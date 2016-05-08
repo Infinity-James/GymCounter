@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2d4-mY-vvt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2d4-mY-vvt">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -152,6 +152,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KxU-hS-uIi" firstAttribute="centerX" secondItem="Y3d-yM-lM1" secondAttribute="centerX" id="1TI-fH-gNt"/>
                             <constraint firstItem="99X-WP-PwL" firstAttribute="top" secondItem="8m9-l0-yW0" secondAttribute="bottom" constant="20" id="6P0-k1-sgH"/>
@@ -161,6 +162,9 @@
                             <constraint firstItem="uuY-ow-Slj" firstAttribute="top" secondItem="KxU-hS-uIi" secondAttribute="bottom" constant="8" id="pBw-Ej-QdG"/>
                             <constraint firstItem="KxU-hS-uIi" firstAttribute="top" secondItem="99X-WP-PwL" secondAttribute="bottom" constant="32" id="xW5-Pp-ncE"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3OF-UY-BiE" appends="YES" id="JR0-SM-XCB"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="exerciseFormStackView" destination="99X-WP-PwL" id="6oE-S4-fFD"/>
@@ -172,6 +176,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXk-dJ-tLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3OF-UY-BiE">
+                    <connections>
+                        <action selector="viewTapped:" destination="Y2a-0T-3ON" id="7qh-bj-Ie1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2239" y="543"/>
         </scene>
@@ -310,6 +319,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="DdD-Mj-plX" firstAttribute="top" secondItem="5Od-WZ-YPK" secondAttribute="bottom" constant="8" id="5V1-5q-Phu"/>
                             <constraint firstItem="tvK-zS-pDi" firstAttribute="top" secondItem="DdD-Mj-plX" secondAttribute="bottom" constant="48" id="9Iu-Vr-zPm"/>
@@ -331,6 +341,9 @@
                             <constraint firstAttribute="trailing" secondItem="IYK-e1-LQe" secondAttribute="trailing" id="wHZ-kx-mH7"/>
                             <constraint firstItem="h8F-Pc-X37" firstAttribute="top" secondItem="tvK-zS-pDi" secondAttribute="bottom" constant="-40" id="y9L-C0-Fnp"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="OPa-Jz-m6Y" appends="YES" id="rfq-3I-RZH"/>
+                        </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -343,7 +356,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMG-cK-nqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="save" id="eok-OM-V1d"/>
+                <tapGestureRecognizer id="OPa-Jz-m6Y">
+                    <connections>
+                        <action selector="viewTapped:" destination="59N-qK-TnL" id="doo-db-Knc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2947" y="543"/>
         </scene>
