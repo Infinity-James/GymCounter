@@ -8,6 +8,13 @@
 
 import UIKit
 
-class SetsCollectionViewLayout: UICollectionViewFlowLayout {
+//	MARK: Sets Collection View Layout
 
+/**
+    `SetsCollectionViewLayout`
+ 
+    Handles the layout of a collection view displaying sets in an exercise.
+ */
+class SetsCollectionViewLayout: UICollectionViewFlowLayout {
+    
 }
