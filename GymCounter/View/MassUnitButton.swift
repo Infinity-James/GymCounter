@@ -48,6 +48,13 @@ class MassUnitButton: UIButton {
     
     private func setup() {
         addTarget(self, action: #selector(MassUnitButton.tapped), forControlEvents: .TouchUpInside)
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] notification in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.dismissPickerView()
+        }
     }
     
     //	MARK: Actions
@@ -67,6 +74,18 @@ class MassUnitButton: UIButton {
         unitPickerView!.delegate = self
         
         unitButtonDelegate?.massUnitButton(self, shouldDisplayPickerView: unitPickerView!)
+    }
+    
+    //	MARK: Picker View Management
+    
+    /**
+        If the picker view is shown, dismiss it.
+     */
+    func dismissPickerView() {
+        guard let unitPickerView = unitPickerView else { return }
+        
+        unitButtonDelegate?.massUnitButton(self, shouldDismissPickerView: unitPickerView)
+        self.unitPickerView = nil
     }
 }
 
