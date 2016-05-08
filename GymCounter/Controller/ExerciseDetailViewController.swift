@@ -76,6 +76,20 @@ class ExerciseDetailViewController: UIViewController {
         navigationController?.pushViewController(exerciseCounterVC, animated: true)
     }
     
+    @IBAction private func viewTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        dismissKeyboard()
+    }
+    
+    //	MARK: Keyboard Management
+    
+    private func dismissKeyboard() {
+        nameTextField.resignFirstResponder()
+        setsTextField.resignFirstResponder()
+        targetRepsTextField.resignFirstResponder()
+        weightTextField.resignFirstResponder()
+
+    }
+    
     //	MARK: View Lifecycle
     
     override func viewDidLoad() {
@@ -103,6 +117,7 @@ extension ExerciseDetailViewController: MassUnitButtonDelegate {
                 fatalError("The button (\(unitButton)) should have a super view which is inside of the stack view: \(exerciseFormStackView).")
         }
         
+        dismissKeyboard()
         exerciseFormStackView.insertArrangedSubview(pickerView, atIndex: parentViewIndex + 1)
     }
 }

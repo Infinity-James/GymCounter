@@ -21,6 +21,8 @@ class ExerciseCounterViewController: UIViewController {
     
     /// The data source for the sets collection view.
     private let setsDataSource = SetsCollectionViewDataSource()
+    /// The delegate for the sets collection view.
+    private let setsDelegate = SetsCollectionViewDelegate()
     
     /// The exercise that this view controller is counting sets and reps for.
     var exercise: Exercise? {
@@ -75,6 +77,7 @@ class ExerciseCounterViewController: UIViewController {
         didSet {
             setsDataSource.collectionView = setsCollectionView
             setsCollectionView.dataSource = setsDataSource
+            setsCollectionView.delegate = setsDelegate
         }
     }
     
@@ -96,8 +99,15 @@ class ExerciseCounterViewController: UIViewController {
             fatalError(fullErrorMessage)
         }
         
+        dismissKeyboard()
+        unitButton.dismissPickerView()
+        
         let set = Set(reps: reps, weight: weight, weightMeasurementUnit: unitButton.selectedMeasurementUnit)
         exercise?.sets.append(set)
+    }
+    
+    @IBAction private func viewTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        dismissKeyboard()
     }
     
     @objc @IBAction private func saveExercise(saveButtonItem: UIBarButtonItem) {
@@ -115,6 +125,10 @@ class ExerciseCounterViewController: UIViewController {
         title = exercise.name
         
         setsDataSource.exercise = exercise
+    }
+    
+    private func dismissKeyboard() {
+        weightTextField.resignFirstResponder()
     }
     
     //	MARK: View Lifecycle
@@ -138,7 +152,9 @@ class ExerciseCounterViewController: UIViewController {
 extension ExerciseCounterViewController: MassUnitButtonDelegate {
     
     func massUnitButton(unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView) {
+        pickerView.removeFromSuperview()
         
+        weightSetConstraint.active = true
     }
     
     func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
@@ -147,13 +163,18 @@ extension ExerciseCounterViewController: MassUnitButtonDelegate {
                 return
         }
         
+        dismissKeyboard()
+        
         weightSetConstraint.active = false
         
-        view.addSubview(pickerView)
+        view.insertSubview(pickerView, belowSubview: unitButton)
+        view.bringSubviewToFront(weightTextField)
         
         pickerView.translatesAutoresizingMaskIntoConstraints = false
     
-        pickerView.topAnchor.constraintEqualToAnchor(weightTextField.bottomAnchor).active = true
+        let topConstraint = pickerView.topAnchor.constraintEqualToAnchor(weightTextField.bottomAnchor)
+        topConstraint.constant = -40.0
+        topConstraint.active = true
         pickerView.bottomAnchor.constraintEqualToAnchor(addSetLabel.topAnchor).active = true
         pickerView.centerXAnchor.constraintEqualToAnchor(weightTextField.centerXAnchor).active = true
     }
