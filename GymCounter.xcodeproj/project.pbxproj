@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A30FCED1D6CA031006E26AD /* ExerciseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30FCEC1D6CA031006E26AD /* ExerciseEntity.swift */; };
+		1A30FCEF1D6CA1B0006E26AD /* BasicTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A30FCEE1D6CA1B0006E26AD /* BasicTypes.swift */; };
 		1A77BEAB1CB3E06300E5654B /* GymCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEAA1CB3E06300E5654B /* GymCounterTests.swift */; };
 		1A77BEB61CB3E06300E5654B /* GymCounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEB51CB3E06300E5654B /* GymCounterUITests.swift */; };
 		1A77BED11CB3E15F00E5654B /* ExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEC51CB3E15F00E5654B /* ExerciseTableViewController.swift */; };
@@ -19,6 +21,12 @@
 		1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; };
 		1AB2421D1CDFABBA000408ED /* SetsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2421C1CDFABBA000408ED /* SetsCollectionViewLayout.swift */; };
 		1AB2421F1CDFAC53000408ED /* SetsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2421E1CDFAC53000408ED /* SetsCollectionViewDelegate.swift */; };
+		1AC7DAE91D6E213B00849B8C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC7DAE81D6E213B00849B8C /* Realm.framework */; };
+		1AC7DAEA1D6E213C00849B8C /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC7DAE81D6E213B00849B8C /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1AC7DAEC1D6E214200849B8C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC7DAEB1D6E214200849B8C /* RealmSwift.framework */; };
+		1AC7DAED1D6E214200849B8C /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC7DAEB1D6E214200849B8C /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1AC7DAF01D6E224F00849B8C /* ExerciseMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC7DAEF1D6E224F00849B8C /* ExerciseMapping.swift */; };
+		1AC7DAF21D6E262600849B8C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC7DAF11D6E262600849B8C /* DatabaseManager.swift */; };
 		1AE1013E1CB6A81700084897 /* UIKitClosures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AE101401CB6ADC700084897 /* MassUnitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */; };
 		1AE13F831CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE13F821CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift */; };
@@ -49,7 +57,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1AC7DAEA1D6E213C00849B8C /* Realm.framework in Embed Frameworks */,
 				1AE1013E1CB6A81700084897 /* UIKitClosures.framework in Embed Frameworks */,
+				1AC7DAED1D6E214200849B8C /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A30FCEC1D6CA031006E26AD /* ExerciseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseEntity.swift; sourceTree = "<group>"; };
+		1A30FCEE1D6CA1B0006E26AD /* BasicTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTypes.swift; sourceTree = "<group>"; };
 		1A77BE921CB3E06300E5654B /* GymCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A77BEA61CB3E06300E5654B /* GymCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A77BEAA1CB3E06300E5654B /* GymCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymCounterTests.swift; sourceTree = "<group>"; };
@@ -75,6 +87,10 @@
 		1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKitClosures.framework; path = Carthage/Build/iOS/UIKitClosures.framework; sourceTree = "<group>"; };
 		1AB2421C1CDFABBA000408ED /* SetsCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetsCollectionViewLayout.swift; sourceTree = "<group>"; };
 		1AB2421E1CDFAC53000408ED /* SetsCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetsCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		1AC7DAE81D6E213B00849B8C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		1AC7DAEB1D6E214200849B8C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		1AC7DAEF1D6E224F00849B8C /* ExerciseMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMapping.swift; sourceTree = "<group>"; };
+		1AC7DAF11D6E262600849B8C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassUnitButton.swift; sourceTree = "<group>"; };
 		1AE13F821CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		1AE13F841CCD094600D85AF9 /* SetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -85,7 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC7DAE91D6E213B00849B8C /* Realm.framework in Frameworks */,
 				1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */,
+				1AC7DAEC1D6E214200849B8C /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +127,7 @@
 		1A77BE891CB3E06300E5654B = {
 			isa = PBXGroup;
 			children = (
-				1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */,
+				1AC7DAEE1D6E214D00849B8C /* Framework */,
 				1A77BEC31CB3E15F00E5654B /* GymCounter */,
 				1A77BEA91CB3E06300E5654B /* GymCounterTests */,
 				1A77BEB41CB3E06300E5654B /* GymCounterUITests */,
@@ -183,6 +201,10 @@
 				1AB2421C1CDFABBA000408ED /* SetsCollectionViewLayout.swift */,
 				1AE13F821CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift */,
 				1A77BEDA1CB3F29B00E5654B /* Exercise.swift */,
+				1AC7DAEF1D6E224F00849B8C /* ExerciseMapping.swift */,
+				1A30FCEC1D6CA031006E26AD /* ExerciseEntity.swift */,
+				1A30FCEE1D6CA1B0006E26AD /* BasicTypes.swift */,
+				1AC7DAF11D6E262600849B8C /* DatabaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +241,16 @@
 				1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1AC7DAEE1D6E214D00849B8C /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				1AC7DAEB1D6E214200849B8C /* RealmSwift.framework */,
+				1AC7DAE81D6E213B00849B8C /* Realm.framework */,
+				1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,13 +387,17 @@
 			files = (
 				1A77BEDB1CB3F29B00E5654B /* Exercise.swift in Sources */,
 				1AE13F851CCD094600D85AF9 /* SetCollectionViewCell.swift in Sources */,
+				1A30FCEF1D6CA1B0006E26AD /* BasicTypes.swift in Sources */,
 				1AB2421D1CDFABBA000408ED /* SetsCollectionViewLayout.swift in Sources */,
 				1A77BED31CB3E15F00E5654B /* AppDelegate.swift in Sources */,
+				1AC7DAF01D6E224F00849B8C /* ExerciseMapping.swift in Sources */,
+				1AC7DAF21D6E262600849B8C /* DatabaseManager.swift in Sources */,
 				1AB2421F1CDFAC53000408ED /* SetsCollectionViewDelegate.swift in Sources */,
 				1A77BED91CB3EBBB00E5654B /* ExerciseCounterViewController.swift in Sources */,
 				1A77BED11CB3E15F00E5654B /* ExerciseTableViewController.swift in Sources */,
 				1A77BED71CB3E7C200E5654B /* ExerciseDetailViewController.swift in Sources */,
 				1AE13F831CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift in Sources */,
+				1A30FCED1D6CA031006E26AD /* ExerciseEntity.swift in Sources */,
 				1AE101401CB6ADC700084897 /* MassUnitButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +545,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/GymCounter/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounter;
@@ -526,7 +565,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/GymCounter/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounter;
