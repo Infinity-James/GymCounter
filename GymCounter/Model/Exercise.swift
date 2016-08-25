@@ -15,7 +15,7 @@ import Foundation
  
     Represents an exercise performed by the user.
  */
-struct Exercise {
+public struct Exercise {
     
     //	MARK: Properties
     
