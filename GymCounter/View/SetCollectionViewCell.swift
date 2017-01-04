@@ -35,15 +35,15 @@ class SetCollectionViewCell: UICollectionViewCell {
         }
         set {
             if let setNumberLabel = setNumberLabel,
-                setNumber = newValue {
+                let setNumber = newValue {
                 setNumberLabel.text = String(setNumber)
             }
         }
     }
     /// The label that displays the weight performed in the set.
-    @IBOutlet private var weightLabel: UILabel!
+    @IBOutlet fileprivate var weightLabel: UILabel!
     /// The label that displays the reps performed in the set.
-    @IBOutlet private var repsLabel: UILabel!
+    @IBOutlet fileprivate var repsLabel: UILabel!
     /// Displays the the index of this set relative to the other sets in the exercise.
-    @IBOutlet private var setNumberLabel: UILabel!
+    @IBOutlet fileprivate var setNumberLabel: UILabel!
 }

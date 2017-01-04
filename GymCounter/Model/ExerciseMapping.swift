@@ -18,7 +18,7 @@ extension Exercise {
 		exerciseEntity.repTarget = repTarget
 		let setsJSON = sets.map { $0.json }
 		do {
-			let data = try NSJSONSerialization.dataWithJSONObject(setsJSON, options: [])
+			let data = try JSONSerialization.data(withJSONObject: setsJSON, options: [])
 			exerciseEntity.setsData = data
 		} catch {
 			print("Error occurred whilst serializing sets: \(error)")
@@ -33,7 +33,7 @@ extension Exercise {
 extension ExerciseEntity {
 	var exercise: Exercise {
 		do {
-			guard let setsJSON = try NSJSONSerialization.JSONObjectWithData(setsData, options: []) as? [JSONValue] else {
+			guard let setsJSON = try JSONSerialization.jsonObject(with: setsData as Data, options: []) as? [JSONValue] else {
 				fatalError("Could not serialize data into JSON: \(setsData)")
 			}
 			let sets = setsJSON.flatMap { Set(json: $0) }

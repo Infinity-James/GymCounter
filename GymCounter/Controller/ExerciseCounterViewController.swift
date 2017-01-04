@@ -20,20 +20,20 @@ class ExerciseCounterViewController: UIViewController {
     //	MARK: Properties
     
     /// The data source for the sets collection view.
-    private let setsDataSource = SetsCollectionViewDataSource()
+    fileprivate let setsDataSource = SetsCollectionViewDataSource()
     /// The delegate for the sets collection view.
-    private let setsDelegate = SetsCollectionViewDelegate()
+    fileprivate let setsDelegate = SetsCollectionViewDelegate()
     
     /// The exercise that this view controller is counting sets and reps for.
     var exercise: Exercise? {
         didSet {
-            if let exercise = exercise where isViewLoaded() {
+            if let exercise = exercise, isViewLoaded {
                 configureUIWithExercise(exercise)
             }
         }
     }
     /// The internal storage for the weight if text field isn't displayed yet.
-    private var _weight: Double = 0.0
+    fileprivate var _weight: Double = 0.0
     /// The weight for the next set.
     var weight: Double? {
         get {
@@ -48,7 +48,7 @@ class ExerciseCounterViewController: UIViewController {
         }
     }
     /// The unit of measurement for the weight
-    var measurementUnit: MeasurementUnit = .Metric {
+    var measurementUnit: MeasurementUnit = .metric {
         didSet {
             if let unitButton = unitButton {
                 unitButton.selectedMeasurementUnit = measurementUnit
@@ -56,24 +56,24 @@ class ExerciseCounterViewController: UIViewController {
         }
     }
     /// The label that defines how many reps were performed in the set.
-    @IBOutlet private var repsLabel: UILabel!
+    @IBOutlet fileprivate var repsLabel: UILabel!
     /// The counter used to increment or decrement the reps for a set.
-    @IBOutlet private var repsCounter: UIStepper!
+    @IBOutlet fileprivate var repsCounter: UIStepper!
     /// Button to set the unit of measurement for the mass lifted.
-    @IBOutlet private var unitButton: MassUnitButton! {
+    @IBOutlet fileprivate var unitButton: MassUnitButton! {
         didSet {
             unitButton.selectedMeasurementUnit = measurementUnit
             unitButton.unitButtonDelegate = self
         }
     }
     /// The text field which provides the user with a way to enter the mass lifted.
-    @IBOutlet private var weightTextField: UITextField! {
+    @IBOutlet fileprivate var weightTextField: UITextField! {
         didSet {
             weightTextField.text = String(_weight)
         }
     }
     /// The collection view which will display the sets of this exercise.
-    @IBOutlet private var setsCollectionView: UICollectionView! {
+    @IBOutlet fileprivate var setsCollectionView: UICollectionView! {
         didSet {
             setsDataSource.collectionView = setsCollectionView
             setsCollectionView.dataSource = setsDataSource
@@ -82,17 +82,17 @@ class ExerciseCounterViewController: UIViewController {
     }
     
     /// The constraint between the weight text field and the add set label.
-    @IBOutlet private var weightSetConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate var weightSetConstraint: NSLayoutConstraint!
     
     //	MARK: Actions
     
-    @IBAction private func counterValueChanged(counter: UIStepper) {
+    @IBAction fileprivate func counterValueChanged(_ counter: UIStepper) {
         repsLabel.text = "\(Int(counter.value))"
     }
     
-    @IBAction private func addSetTapped(addButton: UIButton) {
+    @IBAction fileprivate func addSetTapped(_ addButton: UIButton) {
         guard let reps = Int(repsLabel.text ?? ""),
-        weight =  Double(weightTextField.text ?? "") else {
+        let weight =  Double(weightTextField.text ?? "") else {
             let repsErrorMessage = "The reps label should only ever display a number and should be convertible to Int: \(repsLabel.text)"
             let weightErrorMessage = "The weight text field should only ever contain a number: \(weightTextField.text)"
             let fullErrorMessage = repsErrorMessage + "\n" + weightErrorMessage
@@ -106,18 +106,18 @@ class ExerciseCounterViewController: UIViewController {
         exercise?.sets.append(set)
     }
     
-    @IBAction private func viewTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    @IBAction fileprivate func viewTapped(_ tapGestureRecognizer: UITapGestureRecognizer) {
         dismissKeyboard()
     }
     
-    @objc @IBAction private func saveExercise(saveButtonItem: UIBarButtonItem) {
+    @objc @IBAction fileprivate func saveExercise(_ saveButtonItem: UIBarButtonItem) {
         
     }
     
     //	MARK: UI Functions
     
-    private func configureUIWithExercise(exercise: Exercise) {
-        if let targetReps = exercise.repTarget where exercise.sets.count == 0 {
+    fileprivate func configureUIWithExercise(_ exercise: Exercise) {
+        if let targetReps = exercise.repTarget, exercise.sets.count == 0 {
             repsLabel.text = "\(targetReps)"
             repsCounter.value = Double(targetReps)
         }
@@ -127,7 +127,7 @@ class ExerciseCounterViewController: UIViewController {
         setsDataSource.exercise = exercise
     }
     
-    private func dismissKeyboard() {
+    fileprivate func dismissKeyboard() {
         weightTextField.resignFirstResponder()
     }
     
@@ -140,7 +140,7 @@ class ExerciseCounterViewController: UIViewController {
             configureUIWithExercise(exercise)
         }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: #selector(ExerciseCounterViewController.saveExercise(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(ExerciseCounterViewController.saveExercise(_:)))
     }
 }
 
@@ -151,32 +151,32 @@ class ExerciseCounterViewController: UIViewController {
  */
 extension ExerciseCounterViewController: MassUnitButtonDelegate {
     
-    func massUnitButton(unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView) {
+    func massUnitButton(_ unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView) {
         pickerView.removeFromSuperview()
         
-        weightSetConstraint.active = true
+        weightSetConstraint.isActive = true
     }
     
-    func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
+    func massUnitButton(_ unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
         guard let addSetLabel = weightSetConstraint?.firstItem as? UILabel,
-            weightTextField = weightSetConstraint?.secondItem as? UITextField else {
+            let weightTextField = weightSetConstraint?.secondItem as? UITextField else {
                 return
         }
         
         dismissKeyboard()
         
-        weightSetConstraint.active = false
+        weightSetConstraint.isActive = false
         
         view.insertSubview(pickerView, belowSubview: unitButton)
-        view.bringSubviewToFront(weightTextField)
+        view.bringSubview(toFront: weightTextField)
         
         pickerView.translatesAutoresizingMaskIntoConstraints = false
     
-        let topConstraint = pickerView.topAnchor.constraintEqualToAnchor(weightTextField.bottomAnchor)
+        let topConstraint = pickerView.topAnchor.constraint(equalTo: weightTextField.bottomAnchor)
         topConstraint.constant = -40.0
-        topConstraint.active = true
-        pickerView.bottomAnchor.constraintEqualToAnchor(addSetLabel.topAnchor).active = true
-        pickerView.centerXAnchor.constraintEqualToAnchor(weightTextField.centerXAnchor).active = true
+        topConstraint.isActive = true
+        pickerView.bottomAnchor.constraint(equalTo: addSetLabel.topAnchor).isActive = true
+        pickerView.centerXAnchor.constraint(equalTo: weightTextField.centerXAnchor).isActive = true
     }
     
 }

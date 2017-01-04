@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/realm-cocoa"]
+	path = Carthage/Checkouts/realm-cocoa
+	url = https://github.com/realm/realm-cocoa.git
+[submodule "Carthage/Checkouts/UIKitClosures"]
+	path = Carthage/Checkouts/UIKitClosures
+	url = https://github.com/Infinity-James/UIKitClosures.git

@@ -12,7 +12,7 @@ import RealmSwift
 //  MARK: Exercise Entity
 
 final class ExerciseEntity: Object {
-	var setsData = NSData()
+	var setsData = Data()
 	var exerciseName = ""
 	var repTarget: Int?
 }
@@ -25,17 +25,17 @@ let setWeightMeasurementUnitKey = "weightMeasurementUnit"
 
 extension Set {
 	var json: JSONValue {
-		var json: JSONValue = [setRepsKey: reps]
-		json[setWeightKey] = weight
-		json[setWeightMeasurementUnitKey] = weightMeasurementUnit.string
+		var json: JSONValue = [setRepsKey: reps as AnyObject]
+		json[setWeightKey] = weight as AnyObject?
+		json[setWeightMeasurementUnitKey] = weightMeasurementUnit.string as AnyObject?
 		return json
 	}
 	
 	init?(json: JSONValue) {
 		guard let reps = json[setRepsKey] as? Int,
-			weight = json[setWeightKey] as? Double,
-			measurementUnitString = json[setWeightMeasurementUnitKey] as? String,
-			measurementUnit = MeasurementUnit(string: measurementUnitString) else {
+			let weight = json[setWeightKey] as? Double,
+			let measurementUnitString = json[setWeightMeasurementUnitKey] as? String,
+			let measurementUnit = MeasurementUnit(string: measurementUnitString) else {
 			return nil
 		}
 		
@@ -53,9 +53,9 @@ private let metricString = "metric"
 extension MeasurementUnit {
 	var string: String {
 		switch self {
-		case .Imperial:
+		case .imperial:
 			return imperialString
-		case .Metric:
+		case .metric:
 			return metricString
 		}
 	}
@@ -63,9 +63,9 @@ extension MeasurementUnit {
 	init?(string: String) {
 		switch string {
 		case imperialString:
-			self = .Imperial
+			self = .imperial
 		case metricString:
-			self = .Metric
+			self = .metric
 		default:
 			return nil
 		}

@@ -15,15 +15,15 @@ public struct DatabaseManager {
 	
 	//  MARK: Properties
 	
-	private static let operationQueue: NSOperationQueue = {
-		let queue = NSOperationQueue()
+	fileprivate static let operationQueue: OperationQueue = {
+		let queue = OperationQueue()
 		queue.name = "Database Queue"
 		return queue
 	}()
 	
 	//  MARK: Saving
 	
-	public static func save(exercise exercise: Exercise) {
+	public static func save(exercise: Exercise) {
 		let entity = exercise.exerciseEntity
 		do {
 			let realm = try Realm()
@@ -35,15 +35,15 @@ public struct DatabaseManager {
 	
 	//  MARK: Loading
 	
-	public static func loadAllExercises(completion: (exercises: [Exercise]?, error: ErrorType?) -> ()) {
-		operationQueue.addOperationWithBlock {
+	public static func loadAllExercises(_ completion: @escaping (_ exercises: [Exercise]?, _ error: Error?) -> ()) {
+		operationQueue.addOperation {
 			do {
 				let realm = try Realm()
 				let entities = realm.objects(ExerciseEntity.self)
 				let exercises = entities.map { $0.exercise }
-				completion(exercises: exercises, error: nil)
+				completion(Array(exercises), nil)
 			} catch {
-				completion(exercises: nil, error: error)
+				completion(nil, error)
 			}
 		}
 	}

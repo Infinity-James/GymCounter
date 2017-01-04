@@ -19,14 +19,14 @@ class MassUnitButton: UIButton {
     
     //	MARK: Properties
     
-    private var unitPickerView: UIPickerView?
+    fileprivate var unitPickerView: UIPickerView?
     
     /// The measurement units available to the user.
-    private let measurementUnits: [MeasurementUnit] = [.Metric, .Imperial]
+    fileprivate let measurementUnits: [MeasurementUnit] = [.metric, .imperial]
     /// The selected measurement unit.
-    var selectedMeasurementUnit = MeasurementUnit.Metric {
+    var selectedMeasurementUnit = MeasurementUnit.metric {
         didSet {
-            setTitle(selectedMeasurementUnit.massUnitString, forState: .Normal)
+            setTitle(selectedMeasurementUnit.massUnitString, for: UIControlState())
         }
     }
     /// An object which will respond to actions in this button.
@@ -46,10 +46,10 @@ class MassUnitButton: UIButton {
         setup()
     }
     
-    private func setup() {
-        addTarget(self, action: #selector(MassUnitButton.tapped), forControlEvents: .TouchUpInside)
+    fileprivate func setup() {
+        addTarget(self, action: #selector(MassUnitButton.tapped), for: .touchUpInside)
         
-        NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] notification in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { [weak self] notification in
             
             guard let strongSelf = self else { return }
             
@@ -59,7 +59,7 @@ class MassUnitButton: UIButton {
     
     //	MARK: Actions
     
-    @objc private func tapped() {
+    @objc fileprivate func tapped() {
         if let unitPickerView = unitPickerView {
             unitButtonDelegate?.massUnitButton(self, shouldDismissPickerView: unitPickerView)
             self.unitPickerView = nil
@@ -68,7 +68,7 @@ class MassUnitButton: UIButton {
         
         //  create a way for the user to select the measurement unit
         unitPickerView = UIPickerView()
-        let selectedIndex = measurementUnits.indexOf(selectedMeasurementUnit)!
+        let selectedIndex = measurementUnits.index(of: selectedMeasurementUnit)!
         unitPickerView?.selectRow(selectedIndex, inComponent: 0, animated: false)
         unitPickerView!.dataSource = self
         unitPickerView!.delegate = self
@@ -93,11 +93,11 @@ class MassUnitButton: UIButton {
 
 extension MassUnitButton: UIPickerViewDataSource {
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return measurementUnits.count
     }
 }
@@ -106,12 +106,12 @@ extension MassUnitButton: UIPickerViewDataSource {
 
 extension MassUnitButton: UIPickerViewDelegate {
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let measurementUnit = measurementUnits[row]
         return measurementUnit.massUnitString
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedMeasurementUnit = measurementUnits[row]
     }
 }
@@ -125,12 +125,12 @@ protocol MassUnitButtonDelegate {
         - Parameter unitButton:     The unit button requesting that the picker view be displayed.
         - Parameter pickerView:     The `UIPickerView` to display.
      */
-    func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView)
+    func massUnitButton(_ unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView)
     /**
         This is called when the picker view should be dismissed.
      
         - Parameter unitButton:     The unit button requesting that the picker view be dismissed.
         - Parameter pickerView:     The `UIPickerView` to dismiss.
      */
-    func massUnitButton(unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView)
+    func massUnitButton(_ unitButton: MassUnitButton, shouldDismissPickerView pickerView: UIPickerView)
 }
