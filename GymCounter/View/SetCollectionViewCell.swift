@@ -8,7 +8,7 @@
 
 import UIKit
 
-//	MARK: Set Collection View Cell Class
+//    MARK: Set Collection View Cell Class
 
 /**
     `SetCollectionViewCell`
@@ -17,7 +17,7 @@ import UIKit
  */
 class SetCollectionViewCell: UICollectionViewCell {
     
-    //	MARK: Properties
+    //    MARK: Properties
     
     /// The set to be displayed in this cell.
     var set: Set? {

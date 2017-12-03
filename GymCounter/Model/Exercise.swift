@@ -15,7 +15,7 @@ import Foundation
  
     Represents an exercise performed by the user.
  */
-struct Exercise {
+public struct Exercise {
     
     //	MARK: Properties
     
@@ -55,16 +55,16 @@ struct Set {
  */
 enum MeasurementUnit {
     /// An imperial measurement unit (lbs).
-    case Imperial
+    case imperial
     /// A metric measurement unit (kg).
-    case Metric
+    case metric
     
     /// This measurement unit as a unit to meaure mass (as a String).
     var massUnitString: String {
         switch self {
-        case .Imperial:
+        case .imperial:
             return "lbs"
-        case .Metric:
+        case .metric:
             return "kg"
         }
     }

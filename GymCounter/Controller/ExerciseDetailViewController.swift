@@ -8,7 +8,7 @@
 
 import UIKit
 
-//	MARK: Exercise Detail View Controller Class
+//    MARK: Exercise Detail View Controller Class
 
 /**
     `ExerciseDetailViewController`
@@ -24,12 +24,12 @@ import UIKit
  */
 class ExerciseDetailViewController: UIViewController {
     
-    //	MARK: Constants
+    //    MARK: Constants
     
     /// Identifies a segue that is triggered when the user wants to start counting the exercise.
     private let startExerciseSegueIdentifier = "StartExerciseSegue"
-    
-    //	MARK: Properties
+	
+    //    MARK: Properties
     
     /// Field for user to enter name of exercise.
     @IBOutlet private var nameTextField: UITextField!
@@ -39,27 +39,23 @@ class ExerciseDetailViewController: UIViewController {
     @IBOutlet private var targetRepsTextField: UITextField!
     /// Field for user to enter weight for the sets.
     @IBOutlet private var weightTextField: UITextField!
-    
+	
     /// A button which when tapped allows the user to select the measurement unit for the weight.
     @IBOutlet private var massUnitButton: MassUnitButton!
-    
+	
     /// The stack view that holds the elements necessary to describe an exercise.
     @IBOutlet private var exerciseFormStackView: UIStackView!
 
     
-    //	MARK: Actions
+    //    MARK: Actions
     
     @IBAction private func startExerciseTapped(startButton: UIButton) {
-        
+		
         guard let exerciseName = nameTextField.text,
 			let weightText = weightTextField.text,
 			let weight = Double(weightText), exerciseName != "" else {
 				let alert = UIAlertController(title: "Missing Information", message: "Make sure there is a valid exercise name and weight entered before tyring to continue.", preferredStyle: .alert)
 				let okayAction = UIAlertAction(title: "Got It", style: .cancel, handler: nil)
-            alert.addAction(okayAction)
-				present(alert, animated: true, completion: nil)
-            return
-        }
         
         let repsTarget = Int(targetRepsTextField.text ?? "")
         
@@ -79,7 +75,7 @@ class ExerciseDetailViewController: UIViewController {
         dismissKeyboard()
     }
     
-    //	MARK: Keyboard Management
+    //    MARK: Keyboard Management
     
     private func dismissKeyboard() {
         nameTextField.resignFirstResponder()
@@ -89,7 +85,7 @@ class ExerciseDetailViewController: UIViewController {
 
     }
     
-    //	MARK: View Lifecycle
+    //    MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +94,7 @@ class ExerciseDetailViewController: UIViewController {
     }
 }
 
-//	MARK: MassUnitButtonDelegate
+//    MARK: MassUnitButtonDelegate
 
 extension ExerciseDetailViewController: MassUnitButtonDelegate {
 
@@ -109,7 +105,7 @@ extension ExerciseDetailViewController: MassUnitButtonDelegate {
 
     
     func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
-        
+		
         //  insert the picker into the stack view below the button
         guard let parentView = unitButton.superview,
             let parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {

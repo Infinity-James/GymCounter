@@ -8,7 +8,7 @@
 
 import UIKit
 
-//	MARK: Exercise Counter View Controller Class
+//    MARK: Exercise Counter View Controller Class
 
 /**
     `ExerciseCounterViewController`
@@ -17,17 +17,17 @@ import UIKit
  */
 class ExerciseCounterViewController: UIViewController {
     
-    //	MARK: Properties
+    //    MARK: Properties
     
     /// The data source for the sets collection view.
     private let setsDataSource = SetsCollectionViewDataSource()
     /// The delegate for the sets collection view.
     private let setsDelegate = SetsCollectionViewDelegate()
-    
+	
     /// The exercise that this view controller is counting sets and reps for.
     var exercise: Exercise? {
-        didSet {
-			if let exercise = exercise, isViewLoaded() {
+        didSet {{
+            if let exercise = exercise, isViewLoaded {
                 configureUIWithExercise(exercise)
             }
         }
@@ -83,8 +83,8 @@ class ExerciseCounterViewController: UIViewController {
     
     /// The constraint between the weight text field and the add set label.
     @IBOutlet private var weightSetConstraint: NSLayoutConstraint!
-    
-    //	MARK: Actions
+		
+    //    MARK: Actions
     
     @IBAction private func counterValueChanged(counter: UIStepper) {
         repsLabel.text = "\(Int(counter.value))"
@@ -111,10 +111,10 @@ class ExerciseCounterViewController: UIViewController {
     }
     
     @objc @IBAction private func saveExercise(saveButtonItem: UIBarButtonItem) {
-        
+		
     }
     
-    //	MARK: UI Functions
+    //    MARK: UI Functions
     
     private func configureUIWithExercise(exercise: Exercise) {
 		if let targetReps = exercise.repTarget, exercise.sets.count == 0 {
@@ -131,7 +131,7 @@ class ExerciseCounterViewController: UIViewController {
         weightTextField.resignFirstResponder()
     }
     
-    //	MARK: View Lifecycle
+    //    MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +144,7 @@ class ExerciseCounterViewController: UIViewController {
     }
 }
 
-//	MARK: MassUnitButtonDelegate
+//    MARK: MassUnitButtonDelegate
 
 /**
     Fucntions pertaining to the display and dismissal of the picker created by the mass unit button.
@@ -166,10 +166,10 @@ extension ExerciseCounterViewController: MassUnitButtonDelegate {
         dismissKeyboard()
         
         weightSetConstraint.active = false
-        
+		
         view.insertSubview(pickerView, belowSubview: unitButton)
         view.bringSubviewToFront(weightTextField)
-        
+		
         pickerView.translatesAutoresizingMaskIntoConstraints = false
     
         let topConstraint = pickerView.topAnchor.constraintEqualToAnchor(weightTextField.bottomAnchor)

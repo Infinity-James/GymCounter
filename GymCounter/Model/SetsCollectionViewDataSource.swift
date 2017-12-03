@@ -22,16 +22,16 @@ class SetsCollectionViewDataSource: NSObject {
     /// The collection view that we provide the data for.
     weak var collectionView: UICollectionView?
     //  Reuse identifier for the cells.
-    private let reuseIdentifier = String(SetCollectionViewCell)
+    fileprivate let reuseIdentifier = String(describing: SetCollectionViewCell.self)
     //  The exercise whose sets need to be displayed.
     var exercise: Exercise {
         didSet {
             collectionView?.reloadData()
             
             if exercise.sets.count > 0 {
-                let lastIndexPath = NSIndexPath(forItem: exercise.sets.count - 1, inSection: 0)
+                let lastIndexPath = IndexPath(item: exercise.sets.count - 1, section: 0)
                 
-                collectionView?.scrollToItemAtIndexPath(lastIndexPath, atScrollPosition: .Right, animated: true)
+                collectionView?.scrollToItem(at: lastIndexPath, at: .right, animated: true)
             }
         }
     }
@@ -47,8 +47,8 @@ class SetsCollectionViewDataSource: NSObject {
 
 extension SetsCollectionViewDataSource: UICollectionViewDataSource {
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? SetCollectionViewCell else {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SetCollectionViewCell else {
             fatalError("Could not dequeue a cell with the reuse identifier \(reuseIdentifier).")
         }
         
@@ -59,7 +59,7 @@ extension SetsCollectionViewDataSource: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return exercise.sets.count
     }
 }
