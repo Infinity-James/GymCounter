@@ -16,10 +16,8 @@
 		1A77BED71CB3E7C200E5654B /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BED61CB3E7C200E5654B /* ExerciseDetailViewController.swift */; };
 		1A77BED91CB3EBBB00E5654B /* ExerciseCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */; };
 		1A77BEDB1CB3F29B00E5654B /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A77BEDA1CB3F29B00E5654B /* Exercise.swift */; };
-		1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; };
 		1AB2421D1CDFABBA000408ED /* SetsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2421C1CDFABBA000408ED /* SetsCollectionViewLayout.swift */; };
 		1AB2421F1CDFAC53000408ED /* SetsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB2421E1CDFAC53000408ED /* SetsCollectionViewDelegate.swift */; };
-		1AE1013E1CB6A81700084897 /* UIKitClosures.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AE101401CB6ADC700084897 /* MassUnitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */; };
 		1AE13F831CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE13F821CCD07B900D85AF9 /* SetsCollectionViewDataSource.swift */; };
 		1AE13F851CCD094600D85AF9 /* SetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE13F841CCD094600D85AF9 /* SetCollectionViewCell.swift */; };
@@ -49,7 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1AE1013E1CB6A81700084897 /* UIKitClosures.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +69,6 @@
 		1A77BED61CB3E7C200E5654B /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		1A77BED81CB3EBBB00E5654B /* ExerciseCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCounterViewController.swift; sourceTree = "<group>"; };
 		1A77BEDA1CB3F29B00E5654B /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKitClosures.framework; path = Carthage/Build/iOS/UIKitClosures.framework; sourceTree = "<group>"; };
 		1AB2421C1CDFABBA000408ED /* SetsCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetsCollectionViewLayout.swift; sourceTree = "<group>"; };
 		1AB2421E1CDFAC53000408ED /* SetsCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetsCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		1AE1013F1CB6ADC700084897 /* MassUnitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MassUnitButton.swift; sourceTree = "<group>"; };
@@ -85,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A77BEDF1CB3F62C00E5654B /* UIKitClosures.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +104,6 @@
 		1A77BE891CB3E06300E5654B = {
 			isa = PBXGroup;
 			children = (
-				1A77BEDE1CB3F62C00E5654B /* UIKitClosures.framework */,
 				1A77BEC31CB3E15F00E5654B /* GymCounter */,
 				1A77BEA91CB3E06300E5654B /* GymCounterTests */,
 				1A77BEB41CB3E06300E5654B /* GymCounterUITests */,
@@ -285,7 +279,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "&Beyond";
 				TargetAttributes = {
 					1A77BE911CB3E06300E5654B = {
@@ -412,25 +406,33 @@
 		1A77BEB81CB3E06300E5654B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
@@ -462,25 +464,33 @@
 		1A77BEB91CB3E06300E5654B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
@@ -497,6 +507,7 @@
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -505,16 +516,17 @@
 		1A77BEBB1CB3E06300E5654B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/GymCounter/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -522,16 +534,17 @@
 		1A77BEBC1CB3E06300E5654B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/GymCounter/Supporting-Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -539,8 +552,8 @@
 		1A77BEBE1CB3E06300E5654B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GymCounterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterTests;
@@ -552,8 +565,8 @@
 		1A77BEBF1CB3E06300E5654B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GymCounterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterTests;
@@ -565,7 +578,7 @@
 		1A77BEC11CB3E06300E5654B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = GymCounterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterUITests;
@@ -577,7 +590,7 @@
 		1A77BEC21CB3E06300E5654B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = GymCounterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = co.andbeyond.GymCounterUITests;

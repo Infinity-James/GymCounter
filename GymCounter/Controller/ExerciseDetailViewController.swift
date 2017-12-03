@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKitClosures
 
 //	MARK: Exercise Detail View Controller Class
 
@@ -53,12 +52,12 @@ class ExerciseDetailViewController: UIViewController {
     @IBAction private func startExerciseTapped(startButton: UIButton) {
         
         guard let exerciseName = nameTextField.text,
-        weightText = weightTextField.text,
-        weight = Double(weightText) where exerciseName != "" else {
-            let alert = UIAlertController(title: "Missing Information", message: "Make sure there is a valid exercise name and weight entered before tyring to continue.", preferredStyle: .Alert)
-            let okayAction = UIAlertAction(title: "Got It", style: .Cancel, handler: nil)
+			let weightText = weightTextField.text,
+			let weight = Double(weightText), exerciseName != "" else {
+				let alert = UIAlertController(title: "Missing Information", message: "Make sure there is a valid exercise name and weight entered before tyring to continue.", preferredStyle: .alert)
+				let okayAction = UIAlertAction(title: "Got It", style: .cancel, handler: nil)
             alert.addAction(okayAction)
-            presentViewController(alert, animated: true, completion: nil)
+				present(alert, animated: true, completion: nil)
             return
         }
         
@@ -66,8 +65,8 @@ class ExerciseDetailViewController: UIViewController {
         
         let exercise = Exercise(sets: [], name: exerciseName, repTarget: repsTarget)
 
-        guard let exerciseCounterVC = storyboard?.instantiateViewControllerWithIdentifier(String(ExerciseCounterViewController)) as? ExerciseCounterViewController else {
-            fatalError("Storyboard should contain view controller with identifier: \(String(ExerciseCounterViewController))")
+		guard let exerciseCounterVC = storyboard?.instantiateViewController(withIdentifier: String(describing: ExerciseCounterViewController())) as? ExerciseCounterViewController else {
+			fatalError("Storyboard should contain view controller with identifier: \(String(describing: ExerciseCounterViewController()))")
         }
         
         exerciseCounterVC.exercise = exercise
@@ -113,7 +112,7 @@ extension ExerciseDetailViewController: MassUnitButtonDelegate {
         
         //  insert the picker into the stack view below the button
         guard let parentView = unitButton.superview,
-            parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {
+            let parentViewIndex = exerciseFormStackView.arrangedSubviews.indexOf(parentView) else {
                 fatalError("The button (\(unitButton)) should have a super view which is inside of the stack view: \(exerciseFormStackView).")
         }
         

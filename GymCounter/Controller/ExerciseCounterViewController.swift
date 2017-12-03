@@ -27,7 +27,7 @@ class ExerciseCounterViewController: UIViewController {
     /// The exercise that this view controller is counting sets and reps for.
     var exercise: Exercise? {
         didSet {
-            if let exercise = exercise where isViewLoaded() {
+			if let exercise = exercise, isViewLoaded() {
                 configureUIWithExercise(exercise)
             }
         }
@@ -92,7 +92,7 @@ class ExerciseCounterViewController: UIViewController {
     
     @IBAction private func addSetTapped(addButton: UIButton) {
         guard let reps = Int(repsLabel.text ?? ""),
-        weight =  Double(weightTextField.text ?? "") else {
+			let weight =  Double(weightTextField.text ?? "") else {
             let repsErrorMessage = "The reps label should only ever display a number and should be convertible to Int: \(repsLabel.text)"
             let weightErrorMessage = "The weight text field should only ever contain a number: \(weightTextField.text)"
             let fullErrorMessage = repsErrorMessage + "\n" + weightErrorMessage
@@ -117,7 +117,7 @@ class ExerciseCounterViewController: UIViewController {
     //	MARK: UI Functions
     
     private func configureUIWithExercise(exercise: Exercise) {
-        if let targetReps = exercise.repTarget where exercise.sets.count == 0 {
+		if let targetReps = exercise.repTarget, exercise.sets.count == 0 {
             repsLabel.text = "\(targetReps)"
             repsCounter.value = Double(targetReps)
         }
@@ -159,7 +159,7 @@ extension ExerciseCounterViewController: MassUnitButtonDelegate {
     
     func massUnitButton(unitButton: MassUnitButton, shouldDisplayPickerView pickerView: UIPickerView) {
         guard let addSetLabel = weightSetConstraint?.firstItem as? UILabel,
-            weightTextField = weightSetConstraint?.secondItem as? UITextField else {
+			let weightTextField = weightSetConstraint?.secondItem as? UITextField else {
                 return
         }
         

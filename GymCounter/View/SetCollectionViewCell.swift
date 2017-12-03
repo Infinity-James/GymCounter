@@ -35,7 +35,7 @@ class SetCollectionViewCell: UICollectionViewCell {
         }
         set {
             if let setNumberLabel = setNumberLabel,
-                setNumber = newValue {
+				let setNumber = newValue {
                 setNumberLabel.text = String(setNumber)
             }
         }
